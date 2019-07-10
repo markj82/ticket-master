@@ -11,6 +11,17 @@ class App extends Component {
     citySearch: ''
   }
 
+
+  componentDidMount () {
+    fetch('https://app.ticketmaster.com/discovery/v2/events?apikey=7Ajn33n2j4tmkKQJGg7VTMuEmBCy9Kzp&latlong=34.0522342,-118.2436849')
+    .then(buffer => {
+      return buffer.json()
+    }).then(res => this.setState({ events: res._embedded.events }))
+  }
+
+  
+//https://app.ticketmaster.com/discovery/v2/events?apikey=7Ajn33n2j4tmkKQJGg7VTMuEmBCy9Kzp&latlong=34.0522342,-118.2436849
+
   // https://app.ticketmaster.com/discovery/v2/events.json?city=leeds&apikey=7Ajn33n2j4tmkKQJGg7VTMuEmBCy9Kzp
 
   // componentDidMount() {
@@ -24,6 +35,8 @@ class App extends Component {
   //       })
   //     }) 
   // }
+
+
 
   handleChangeInput = e => {
     this.setState({
@@ -45,7 +58,9 @@ class App extends Component {
         this.setState({
           events: res._embedded.events
         })
-      }) 
+      }).catch(err => {
+        return alert('Please enter valid city')
+      })
   }
 
   render() { 
