@@ -65,14 +65,18 @@ class App extends Component {
 
   render() { 
     return (
-      <div id="main">
-        <ControlPanel
-          cities={this.state.cities}
-          eventType={this.state.eventType}
-          change={this.handleChangeInput}
-          submit={this.handleSubmit}
-        />
-        <Events allEvents={this.state.events}/>
+      <div id="main" className="main">
+        <div className="controlPanel">
+          <ControlPanel
+            cities={this.state.cities}
+            eventType={this.state.eventType}
+            change={this.handleChangeInput}
+            submit={this.handleSubmit}
+          />
+        </div>
+        <div className="events">
+          <Events allEvents={this.state.events}/>
+        </div>
       </div>
     );
   }

@@ -1,15 +1,17 @@
 img {
-    width: 200px
+    width: 180px;
+    vertical-align: middle;
 }
 
 #event {
     border-radius: 10px;
     background: rgb(238, 232, 232);
-    width: 210px;
+    width: 190px;
     margin: 10px;
     padding: 5px;
     display: inline;
     height: 280px;
+    vertical-align: middle;
 }
 
 #all-events {

@@ -2,13 +2,16 @@ import React from 'react'
 import './Event.css'
 
 const Event = (props) => {
-    if(props.allEvents) {
+    if(props.allEvents) {        
         return props.allEvents.map(event => {
+            const urlOK = event.images.find(img => {
+                return img.ratio === "4_3"
+            })
             return (
                 <div id="all-events">
                 <div key={event.id} id="event"> 
+                    <img src={urlOK.url}/>
                     <h5>{event.name}</h5>
-                    <img src={event.images[2].url}/>
                     <p>{event.classifications[0].segment.name}</p>
                     <p>{event.classifications[0].subGenre.name}</p>
                 </div>
